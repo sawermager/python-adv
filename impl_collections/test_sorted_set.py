@@ -1,12 +1,12 @@
 import unittest
 
-from impl_collections.sorted_set import SortedSet
+from sorted_set import SortedSet
 
 class TestConstruction(unittest.TestCase):
     """
     These tests ensure that we can construct instances of
     SortedSet in the way what we would expect of any Python
-    collection.
+    collection including an empty list.
 
     Arguments:
         unittest {[type]} -- unittest base class
@@ -48,6 +48,12 @@ class TestConstruction(unittest.TestCase):
         s = SortedSet()
     
 class TestContainerProtocol(unittest.TestCase):
+    """A container should support 'in' and 'not in'
+    operations.
+
+    Arguments:
+        unittest {[type]} -- unittest base class
+    """
     
     def setUp(self):
         self.s = SortedSet([6,7,3,9])
@@ -62,6 +68,11 @@ class TestContainerProtocol(unittest.TestCase):
         self.assertFalse(9 not in self.s)
 
 class TestSizeProtocol(unittest.TestCase):
+    """Should support the len() operation.
+
+    Arguments:
+        unittest {[type]} -- unittest base class
+    """
 
     def test_empty(self):
         s = SortedSet()
@@ -80,6 +91,11 @@ class TestSizeProtocol(unittest.TestCase):
         self.assertEqual(len(s), 1)
 
 class TestIterableProtocol(unittest.TestCase):
+    """Should support iterating on the sequence.
+
+    Arguments:
+        unittest {[type]} -- unittest base clase
+    """
     
     def setUp(self):
         self.s = SortedSet([7,2,1,1,9])
@@ -98,6 +114,61 @@ class TestIterableProtocol(unittest.TestCase):
         for item in self.s:
             self.assertEqual(item, expected[index])
             index += 1
+
+class TestSequenceProtocol(unittest.TestCase):
+    """All the mess of access that is included
+    for python sequences.
+
+    Arguments:
+        unittest {[type]} -- unittest base class
+    """
+
+    def setUp(self):
+        self.s = SortedSet([1,4,9,13,15])
+
+    def test_index_zero(self):
+        self.assertEqual(self.s[0], 1)
+
+    def test_index_four(self):
+        self.assertEqual(self.s[4], 15)
+
+    def test_index_one_beyond_end(self):
+        with self.assertRaises(IndexError):
+            self.s[5]
+            
+    def test_index_minus_one(self):
+        self.assertEqual(self.s[-1], 15)
+
+    def test_index_minus_four(self):
+        self.assertEqual(self.s[-4], 4)
+
+    def test_index_one_before_beginning(self):
+        self.assertRaises(IndexError, lambda: self.s[-6])
+
+    # Note that slicing a sorted set should return a 
+    # sorted set.
+    def test_slice_from_start(self):
+        self.assertEqual(self.s[:3], SortedSet([1,4,9]))
+
+    def test_slice_from_end(self):
+        self.assertEqual(self.s[3:], SortedSet([13,15]))
+
+    def test_slice_empty(self):
+        self.assertEqual(self.s[10:], SortedSet())
+
+    def test_slice_arbituary(self):
+        self.assertEqual(self.s[2:4], SortedSet([9,13]))
+
+    def test_slice_full(self):
+        self.assertEqual(self.s[:], self.s)
+    
+
+
+
+    
+            
+
+    
         
         
 if __name__ == "__main__":
