@@ -1,5 +1,5 @@
 # python-adv  
-Practice adv python   
+Practice adv python concepts and coolness
 &nbsp;  
 &nbsp;  
 
