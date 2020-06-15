@@ -38,7 +38,8 @@ This follows a simple TDD scenario: Test->Code->Design(refactor)->Test...  using
 ### metaclasses/  
 ### class_decorators/  
 ### abstract_base_classes/  
-
+&nbsp;  
+&nbsp;  
 ### python_networking  
 Python networking config of a MPLS_VPN as seen in image below.  
 ![](python_networking/MPLS_VPN_CONFIG.png)
