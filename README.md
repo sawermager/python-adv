@@ -42,7 +42,7 @@ This follows a simple TDD scenario: Test->Code->Design(refactor)->Test...  using
 &nbsp;  
 ### python_networking  
 Python networking config of a MPLS_VPN as seen in image below.  
-![](python_networking/MPLS_VPN_CONFIG.png)
+![](python_networking/python_mpls_vpn_network.png)
 
 
 
