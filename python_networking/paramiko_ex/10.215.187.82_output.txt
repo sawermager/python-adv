@@ -1,0 +1,21 @@
+cat /etc/lsb-release
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=20.04
+DISTRIB_CODENAME=focal
+DISTRIB_DESCRIPTION="Ubuntu 20.04 LTS"
+sawermager@sawermager-focal-lxd:~$ ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+13: eth0@if14: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 00:16:3e:de:77:a8 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 10.215.187.82/24 brd 10.215.187.255 scope global dynamic eth0
+       valid_lft 2636sec preferred_lft 2636sec
+    inet6 fd42:da53:eeee:eb7f:216:3eff:fede:77a8/64 scope global dynamic mngtmpaddr noprefixroute 
+       valid_lft 3293sec preferred_lft 3293sec
+    inet6 fe80::216:3eff:fede:77a8/64 scope link 
+       valid_lft forever preferred_lft forever
+sawermager@sawermager-focal-lxd:~$ 
